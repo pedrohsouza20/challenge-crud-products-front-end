@@ -1,3 +1,5 @@
+import { Router, Routes } from '@angular/router';
+import { routes } from './../../app.routes';
 import { Component } from '@angular/core';
 import { IProduct } from '../../interfaces/Product';
 import { ProductsService } from '../../services/products.service';
@@ -12,10 +14,18 @@ import { NgFor } from '@angular/common';
 export class ProductsListComponent {
   private productsList: IProduct[] = [];
 
-  constructor(private produtsService: ProductsService) {}
+  title = 'challenge-crud-products-front-end';
+  constructor(
+    private produtsService: ProductsService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.getProducts();
+  }
+
+  public goToRegister(): void {
+    this.router.navigate(['/products-register']);
   }
 
   getProducts() {
