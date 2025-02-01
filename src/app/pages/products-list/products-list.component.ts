@@ -1,17 +1,15 @@
-import { IProduct } from './interfaces/Product';
-import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { ProductsService } from './services/products.service';
+import { Component } from '@angular/core';
+import { IProduct } from '../../interfaces/Product';
+import { ProductsService } from '../../services/products.service';
 import { NgFor } from '@angular/common';
-NgFor
+
 @Component({
-  selector: 'app-root',
-  imports: [RouterOutlet, NgFor],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  selector: 'app-products-list',
+  imports: [NgFor],
+  templateUrl: './products-list.component.html',
+  styleUrl: './products-list.component.scss',
 })
-export class AppComponent implements OnInit {
-  title = 'challenge-crud-products-front-end';
+export class ProductsListComponent {
   private productsList: IProduct[] = [];
 
   constructor(private produtsService: ProductsService) {}
