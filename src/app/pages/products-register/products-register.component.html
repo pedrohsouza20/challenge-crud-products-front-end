@@ -1,20 +1,36 @@
 <div class="p-3" style="max-width: 100% !important">
   <h3 class="title mb-3">Cadastro de produtos</h3>
-  <form>
+  <form [formGroup]="productForm" (ngSubmit)="saveProduct()">
     <div class="row d-flex flex-wrap align-items-center">
       <div class="col-sm limited">
-        <input type="text" class="form-control" placeholder="Nome" />
+        <input
+          formControlName="name"
+          type="text"
+          class="form-control"
+          placeholder="Nome"
+        />
       </div>
       <div class="col-sm limited">
-        <input type="text" class="form-control" placeholder="Descrição" />
+        <input
+          formControlName="description"
+          type="text"
+          class="form-control"
+          placeholder="Descrição"
+        />
       </div>
     </div>
     <div class="row d-flex flex-wrap align-items-center">
       <div class="col-sm limited">
-        <input type="number" class="form-control" placeholder="Valor" />
+        <input
+          formControlName="price"
+          type="number"
+          class="form-control"
+          placeholder="Valor"
+        />
       </div>
       <div class="col-sm">
         <input
+          formControlName="available"
           class="form-check-input cursor-pointer"
           type="checkbox"
           value=""
@@ -30,7 +46,7 @@
           <button type="submit" class="btn btn-primary">Cadastrar</button>
         </div>
         <div class="col-md-auto my-1">
-          <button type="submit" class="btn btn-danger" (click)="goToList()">Cancelar</button>
+          <button class="btn btn-danger" (click)="goToList()">Cancelar</button>
         </div>
       </div>
     </div>
